@@ -1,37 +1,42 @@
-<!doctype html>
-<html ng-app="myApp">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  </head>
-  <script>
-  var myApp = angular.module('myApp',[]);
 
-   myApp.controller('MyController',  ['$scope', '$http', function($scope,$http)
-    {
-	   $scope.updateMoney = function(data){
-		   $scope.money=data.data;
-	   }
-      $scope.draw = function(){
-         $http.post('Draw', $scope.Amount).then($scope.updateMoney, $scope.updateMoney);;
-      }
-     
-    }]);
-  </script>
-  <body>
-	
-	<nav>
-	<a href="register.html">�����</a>
-	</nav>
-	
-    <div ng-controller="MyController">
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <br>
-       <label>Amount:</label>
-      <input type="number" ng-model="Amount" placeholder="Enter a amount here">
-      <br>
-      bank have: {{money}} NIS
-      <button ng-click="draw()">draw</button>
-    </div>
-  </body>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<title>poalim portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="includes/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script src="includes/script.js"></script>
+
+    </head>
+    <header>
+      <nav> 
+         <ul>
+         <li  class="dropdown">
+             <a href="#"><img src="images/menu.png"></a>
+              <div class="dropdown-content">
+           <a href="#">הפרופיל שלי</a>
+           <a href="#">התאמה אישית</a>
+           <a href="#">הקורסים שלי</a>
+          </div>
+        </li>
+
+        </ul>
+         
+
+        </nav>
+    </header>
+
+    <body>
+         
+       <img class="mySlides" src="images/image1.jpg">
+       <img class="mySlides" src="images/image2.jpg">
+       <img class="mySlides" src="images/image3.jpg">
+       <img class="mySlides" src="images/image4.jpg">
+      <img class="mySlides" src="images/img_ny.jpg">
+    
+     </body>
 </html>
