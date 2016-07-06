@@ -17,12 +17,13 @@ public class DB {
 			prop.setProperty("hibernate.connection.username", "root");
 			prop.setProperty("hibernate.connection.password", "root");
 			prop.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
-			prop.setProperty("hibernate.hbm2ddl.auto","create");
+			prop.setProperty("hibernate.hbm2ddl.auto","update");
 			
 			concreteSessionFactory = new AnnotationConfiguration()
 		   .addPackage("com.concretepage.persistence")
 				   .addProperties(prop)
 				   .addAnnotatedClass(User.class)
+				   .addAnnotatedClass(Posts.class)
 				   .buildSessionFactory();
 		} catch (Throwable ex) {
 			throw new ExceptionInInitializerError(ex);

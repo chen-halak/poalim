@@ -15,7 +15,7 @@
   <script>
   var myApp = angular.module('myApp',[]);
 
-   myApp.controller('MyController',  ['$scope', '$http', function($scope,$http)
+   myApp.controller('MyController',  ['$scope', '$http','$location', function($scope,$http,$location)
     {
 	   /*$scope.updateMoney = function(data){
 		   $scope.money=data.data;
@@ -26,32 +26,49 @@
       ;
 
       $scope.sucsses = function(data){
-		   $scope.posts=data.data;
+		   //$scope.posts=data.data;
 	  }
       
       $scope.fail = function(data){
 		   $scope.posts=[{"title": "תקלה"}];
 	   }
       
-      $http.get('Post').then($scope.sucsses, $scope.fail);
+      $scope.sendToDB = function(){
+      	$http.post('Post',$scope.post).then($scope.sucsses, $scope.fail);
+    }
       
-	  /* $scope.posts=[
-	                 {
-	                	    "title": "חסכון פנסיוני-למה זה חשוב לך?",
-	                	    "author": "מומחי בנק פועלים",
-	                	    "date_": "27.7.16 12:05",
-	                	    "data": "חסכון פנסיוני יאפשר לך להזדקן בכבוד , להגן על הכנסת המשפחה ולשמור על רמת החיים",
-	                	    
-	                	  },
-	                	  {
-	                	    "title": "הלוואה חברתית",
-	                	    "author": "מומחי בנק הפועלים",
-	                	    "date_": "22.7.16 16:08",
-	                	    "data": "וף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק - וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה שיצמה ברורק",
-	                	    
-	                	  }
-	                	]*/
+      $scope.sucssesDelete = function(data){
+		   //$scope.posts=data.data;
+	  }
      
+     $scope.failDelete = function(data){
+		   $scope.posts=[{"title": "תקלה"}];
+	   }
+     
+     $scope.deleteFromDB = function(){
+     	$http.delete('Post?id='+$location.search().id).then($scope.sucssesDelete, $scope.failDelete);
+   }
+      
+      $scope.sucssesGet = function(data){
+		   $scope.post=data.data;
+	  }
+     
+     $scope.failGet = function(data){
+		   $scope.post=[{"title": "תקלה"}];
+	   }
+     
+     $scope.postID = $location.search().id
+     if($scope.postID)
+     $http.get('Post?id='+$location.search().id).then($scope.sucssesGet, $scope.failGet);
+     
+      
+	   $scope.post={
+       	    "title": "הכנס כותרת",
+    	    "author": "מחבר הבלוג",
+    	    "date_": new Date().toString(),
+    	    "data": ""
+    	  }
+	                     
     }]);
   </script>
 
@@ -95,17 +112,17 @@
 
     <div class="col-sm-9">
     
-    <div ng-repeat="post in posts">
-      <h2>{{post.title}}</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> {{post.author}} | פורסם: {{post.date_}}</h5>
+    
+      <h2><input ng-model="post.title"></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> <input ng-model="post.author"> | פורסם: <input ng-model="post.date_"></h5>
       <h5><span class="label label-danger">חסכון</span> <span class="label label-primary">פנסיה</span></h5><br>
-      <article>{{post.data}}</article><br>
-      <div id ="update"><a href="blog.html?id={{post.id}}">להמשך קריאה לחץ כאן</a></div>
-      <div id ="update"><a href="addBlog.html#?id={{post.id}}">לעריכה לחץ כאן</a></div>
+      <article><input ng-model="post.data"></article><br>
 
       <br><br><hr>
-   </div>   
- 
+
+  <button type="submit" class="btn btn-success" ng-show="postID" ng-click="sendToDB()">ערוך</button>
+  <button type="submit" class="btn btn-success" ng-show="!postID" ng-click="sendToDB()">שלח</button>
+  <button type="submit" class="btn btn-danger" ng-show="!postID" ng-click="deleteFromDB()">מחק</button>
 </div>
 </div>
 </div>

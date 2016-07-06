@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +10,21 @@
      <script src="includes/script.js"></script>
 
     </head>
+      <script>
+  var myApp = angular.module('myApp',[]);
+
+   myApp.controller('MyController',  ['$scope', '$http', function($scope,$http)
+    {
+	   $scope.updateMoney = function(data){
+		   $scope.money=data.data;
+	   }
+      $scope.draw = function(){
+         $http.post('Draw', $scope.Amount).then($scope.updateMoney, $scope.updateMoney);;
+      }
+     
+    }]);
+  </script>
+  
     <body>
     <header>
       <nav> 
@@ -22,6 +35,7 @@
            <a href="#">הפרופיל שלי</a>
            <a href="#">התאמה אישית</a>
            <a href="#">הקורסים שלי</a>
+            <a href="blogs.html">בלוגים</a>
           </div>
         </li>
 
@@ -29,8 +43,6 @@
 
         </nav>
     </header>
-
-    
 
        <div class="center">text2</div>
          
