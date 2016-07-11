@@ -7,7 +7,7 @@ li a img{
 }
 
 
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ li.dropdown {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index:1;
+    z-index:99;
 }
 
 .dropdown-content a {
@@ -63,14 +63,21 @@ li.dropdown {
     display: block;
 }
 .mySlides{
-	display:none;
+	
 	width: 100%;
+	height:auto;
+	opacity:0.8;
+
+
+	
 	
 }
 
 
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
+    .row.content {
+    height: 1500px;
+    }
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -96,10 +103,11 @@ li.dropdown {
     {
      position: absolute;
     left: 0;
-    top: 50%;
+    top:20%;
     width: 100%;
-    text-align: center;
-    font-size: 18px;
+    text-align:center;
+    z-index:1;
+   
     }
     
   #warpper {
@@ -116,4 +124,101 @@ li.dropdown {
 article,p
 {
 	text-align: right;
+}
+.breadCrums
+{
+	width: 1300px;
+    text-align: right;
+    display:block;
+  padding-top:10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+#movieposters
+   { 
+   list-style:none; 
+   margin:100px 0; 
+   height:550px;
+
+  
+ 
+   
+    }
+ 
+
+#movieposters li
+   { display:inline; 
+   float:left;
+   -webkit-perspective: 500; 
+   -webkit-transform-style: preserve-3d;
+   -webkit-transition-property: perspective; -webkit-transition-duration: 0.5s;
+   background-color:transparent;
+   
+    }
+   
+
+#movieposters li:hover
+   { -webkit-perspective: 5000; }
+ 
+
+
+.movieinfo { 
+   border:10px solid #fcfafa; 
+   padding:20px; 
+   width:200px; 
+   height:180px; 
+   background-color:#deddcd; 
+   margin:-195px 0 0 55px; 
+   position:absolute;
+   -moz-box-shadow:0 20px 40px #888; 
+   -webkit-box-shadow:0 20px 40px #888;
+   -webkit-transform: translateZ(30px) rotateY(30deg);
+   -webkit-transition-property: transform, box-shadow, 
+   margin; -webkit-transition-duration: 0.5s;
+top:250px;
+    }
+ 
+
+#movieposters li:hover .movieinfo
+   { 
+      -webkit-transform: rotateY(0deg); 
+      -webkit-box-shadow:0 5px 10px #888; margin:-175px 0 0 30px;
+       }
+ 
+
+.movieinfo h3 { 
+   color:#7a3f3a; 
+   font-variant: small-caps; 
+   font-family:Georgia,serif,Times; 
+   text-align:center; 
+   padding-bottom:15px; 
+}
+.movieinfo p
+ { 
+   padding-bottom:15px;
+  }
+.movieinfo a { 
+   background-color:#7a3f3a; 
+   padding:5px 10px; color:#eee; 
+   text-decoration:none; 
+   display:block; 
+   width:80px; 
+   text-align:center; margin:0 auto;
+   -moz-border-radius:5px; 
+   -webkit-border-radius:5px;
+    }
+.movieinfo a:hover, .movieinfo a:focus 
+{ background-color:#6a191f; 
+   color:#fff;
+}
+h1
+{
+text-shadow: 0px 1px 1px #0000ff;
+	color: #000000;
+	font-size: 48px; 
+	font-style: italic;
+
+
 }

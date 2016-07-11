@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
-<html>
+<html  ng-app="myApp">
     <head>
         <meta charset="utf-8">
 <title>poalim portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="includes/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
      <script src="includes/script.js"></script>
 
     </head>
@@ -25,33 +26,41 @@
     }]);
   </script>
   
-    <body>
+<body  ng-controller="MyController">
     <header>
-      <nav> 
-         <ul>
-         <li  class="dropdown">
-             <a href="#"><img src="images/menu.png"></a>
-              <div class="dropdown-content">
-           <a href="#">הפרופיל שלי</a>
-           <a href="#">התאמה אישית</a>
-           <a href="#">הקורסים שלי</a>
-            <a href="blogs.html">בלוגים</a>
-          </div>
-        </li>
-
-        </ul>
-
+        <nav>
+            <ul>
+                <li  class="dropdown">
+                    <a href="#">
+                        <img src="images/menu.png">
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">הפרופיל שלי</a>
+                        <a href="#">התאמה אישית</a>
+                        <a href="#">הקורסים שלי</a>
+                        <a href="blogs.html">בלוגים</a>
+                    </div>
+                </li>
+            </ul>
         </nav>
-    </header>
-
-       <div class="center">text2</div>
-         
-       <img class="mySlides" src="images/image1.jpg">
-       <img class="mySlides" src="images/image2.jpg">
-       <img class="mySlides" src="images/image3.jpg">
-      
-      
-      
+     </header>
+        <div class="center">
+        <h1>העולם הפיננסי<br> מחכה לך</h1>
     
-     </body>
+            <ul id="movieposters">
+                <li>
+                    <div class="movieinfo">
+                        <h3>Webinar</h3>
+                        <p>With the world now aware of his dual life as the armored superhero Iron Man, billionaire inventor Tony...</p>
+                        <a href="#">למידע נוסף</a>
+                    </div>
+                </li>
+            </ul>
+            
+       </div>
+        <img class="mySlides" src="images/image1.jpg">
+        <img class="mySlides" src="images/image2.jpg"> 
+     
+ 
+    </body>
 </html>

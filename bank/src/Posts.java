@@ -34,6 +34,7 @@ private String author;
 private String date;
 @JsonProperty("data")
 private String data;
+private String subject;
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 @JsonProperty("id")
@@ -137,6 +138,14 @@ return id;
 @JsonProperty("id")
 public void setId(Integer id) {
 this.id = id;
+}
+
+public String getSubject() {
+	return subject;
+}
+
+public void setSubject(String subject) {
+	this.subject = subject;
 }
 
 

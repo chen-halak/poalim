@@ -26,6 +26,7 @@
       ;
 
       $scope.sucsses = function(data){
+    	  location="blogs.html";
 		   //$scope.posts=data.data;
 	  }
       
@@ -38,6 +39,7 @@
     }
       
       $scope.sucssesDelete = function(data){
+    	  location="blogs.html";
 		   //$scope.posts=data.data;
 	  }
      
@@ -62,12 +64,9 @@
      $http.get('Post?id='+$location.search().id).then($scope.sucssesGet, $scope.failGet);
      
       
-	   $scope.post={
-       	    "title": "הכנס כותרת",
-    	    "author": "מחבר הבלוג",
-    	    "date_": new Date().toString(),
-    	    "data": ""
-    	  }
+     	   $scope.post={
+    		     	    "date_": new Date().toString()
+    		     	  }
 	                     
     }]);
   </script>
@@ -90,6 +89,7 @@
 
         </nav>
     </header>
+        
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav"><br>
@@ -98,7 +98,7 @@
         <li class="active1"><a href="#">בלוגים הנצפים ביותר</a></li>
         <li class="active1"><a href="#">הבלוגים הפעילים ביותר</a></li>
         <li class="active1"><a href="#">בלוגים לפי נושאים</a></li>
-        <li class="active1"><a href="addBlog.html">הוספת בלוג</a></li>
+        <li class="active1"><a href="#">הוספת  בלוג</a></li>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="חפש בלוג">
@@ -111,18 +111,25 @@
     </div>
 
     <div class="col-sm-9">
+       <div class="breadCrums">
+           <a href="index.html">בית/</a> 
+           <a href="blogs.html">בלוגים/</a>
+        <span>ניהול בלוג</span>
+           </div>
     
-    
-      <h2><input ng-model="post.title"></h2>
-      <h5><span class="glyphicon glyphicon-time"></span> <input ng-model="post.author"> | פורסם: <input ng-model="post.date_"></h5>
-      <h5><span class="label label-danger">חסכון</span> <span class="label label-primary">פנסיה</span></h5><br>
-      <article><input ng-model="post.data"></article><br>
+      <h2><input ng-model="post.title" placeholder="הכנס כותרת"></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> <input ng-model="post.author" placeholder="שם המחבר"> | פורסם: <input ng-model="post.date_"></h5>
+     <select ng-model="post.subject">
+     <option>הלוואה</option>
+      <option>חסכון</option>
+     </select>
+      <article><input ng-model="post.data" placeholder="תוכן הבלוג"></article><br>
 
       <br><br><hr>
 
   <button type="submit" class="btn btn-success" ng-show="postID" ng-click="sendToDB()">ערוך</button>
   <button type="submit" class="btn btn-success" ng-show="!postID" ng-click="sendToDB()">שלח</button>
-  <button type="submit" class="btn btn-danger" ng-show="!postID" ng-click="deleteFromDB()">מחק</button>
+  <button type="submit" class="btn btn-danger" ng-show="postID" ng-click="deleteFromDB()">מחק</button>
 </div>
 </div>
 </div>

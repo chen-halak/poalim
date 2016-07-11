@@ -73,6 +73,7 @@
 
         </nav>
     </header>
+       
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav"><br>
@@ -81,7 +82,7 @@
         <li class="active1"><a href="#">בלוגים הנצפים ביותר</a></li>
         <li class="active1"><a href="#">הבלוגים הפעילים ביותר</a></li>
         <li class="active1"><a href="#">בלוגים לפי נושאים</a></li>
-        <li class="active1"><a href="addBlog.html">הוספת בלוג</a></li>
+        <li class="active1"><a href="addBlog.html">הוספת  בלוג</a></li>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="חפש בלוג">
@@ -94,14 +95,19 @@
     </div>
 
     <div class="col-sm-9">
-    
-    <div ng-repeat="post in posts">
+      <div class="breadCrums">
+           <a href="index.html">בית/</a> 
+          
+            <span>בלוגים</span>
+        
+           </div>
+    <div ng-repeat="post in posts | orderBy:'-'">
       <h2>{{post.title}}</h2>
       <h5><span class="glyphicon glyphicon-time"></span> {{post.author}} | פורסם: {{post.date_}}</h5>
-      <h5><span class="label label-danger">חסכון</span> <span class="label label-primary">פנסיה</span></h5><br>
+      <h5><span class="label label-danger">{{post.subject}}</span></h5><br>
       <article>{{post.data}}</article><br>
-      <div id ="update"><a href="blog.html?id={{post.id}}">להמשך קריאה לחץ כאן</a></div>
-      <div id ="update"><a href="addBlog.html#?id={{post.id}}">לעריכה לחץ כאן</a></div>
+     <!--   <div id ="update"><a href="blog.html?id={{post.id}}">להמשך קריאה לחץ כאן</a></div>-->
+      <div id ="update"><a href="addBlog.html#?id={{post.id}}">לעריכה או מחיקה לחץ כאן</a></div>
 
       <br><br><hr>
    </div>   
