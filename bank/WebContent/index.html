@@ -16,18 +16,25 @@
 
    myApp.controller('MyController',  ['$scope', '$http', function($scope,$http)
     {
-	   $scope.updateMoney = function(data){
+	   /* $scope.updateMoney = function(data){
 		   $scope.money=data.data;
 	   }
       $scope.draw = function(){
          $http.post('Draw', $scope.Amount).then($scope.updateMoney, $scope.updateMoney);;
-      }
+      } */
+      $scope.login = function(){
+          $http.post('Cookie', $scope.user);
+       }
+      //$scope.getUser = function(){
+          $http.get('Cookie').then(x=>$scope.user=x.data, $scope.updateMoney);
+       //}
      
     }]);
   </script>
   
 <body  ng-controller="MyController">
     <header>
+    	שלום {{user}} <input ng-model="user"> <button ng-click="login()">login</button>
         <nav>
             <ul>
                 <li  class="dropdown">

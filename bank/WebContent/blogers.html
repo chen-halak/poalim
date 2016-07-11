@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>בלוג</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <link rel="stylesheet" href="includes/style.css">
+</head>
+<body id="warpper" ng-controller="MyController">
+  <header>
+      <nav> 
+         <ul>
+         <li  class="dropdown">
+             <a href="#"><img src="images/menu.png"></a>
+              <div class="dropdown-content">
+           <a href="#">הפרופיל שלי</a>
+           <a href="#">התאמה אישית</a>
+           <a href="#">הקורסים שלי</a>
+            <a href="blogs.html">בלוגים</a>
+          </div>
+        </li>
+
+        </ul>
+
+        </nav>
+        
+    </header>
+ 
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav"><br>
+       
+      <ul class="nav nav-pills nav-stacked">
+        
+        <li class="active"><a href="blogs.html"><img src="images/home.png"></a></li>
+        <li class="active1"><a href="#">בלוגים הנצפים ביותר</a></li>
+        <li class="active1"><a href="#">הבלוגים הפעילים ביותר</a></li>
+         <li class="active1"><a href="#">בלוגים לפי נושאים</a></li>
+        <li class="active1"><a href="addBlog.html">ניהול בלוג</a></li>
+        
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="חפש בלוג">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+  <div class="breadCrums">
+           <a href="index.html">בית/</a> 
+          
+            <span>רשימת בלוגים</span>
+           </div>
+
+<div class="row">
+   <div ng-repeat="post in posts">
+<!--       <h2>{{post.title}}</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> {{post.author}} | פורסם: {{post.date_}}</h5>
+      <h5><span class="label label-danger">חסכון</span> <span class="label label-primary">פנסיה</span></h5><br>
+      <article>{{post.data}}</article><br>
+       <div id ="update"><a href="blog.html?id={{post.id}}">להמשך קריאה לחץ כאן</a></div>
+      <div id ="update"><a href="addBlog.html#?id={{post.id}}">לעריכה לחץ כאן</a></div>
+
+      <br><br><hr> -->
+      <div class="col-sm-9">
+          <div class="well">
+       <h4><a href="blogs.html">כותרת</a></h4>
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Anja</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+   </div>  
+        
+      </div>
+</body>
+</html>
